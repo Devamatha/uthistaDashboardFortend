@@ -34,7 +34,7 @@ function Header() {
 
       <div className="dropdown navbar-brand d-flex justify-content-center align-items-center">
         <button
-          className="btn bg-[rgb(27,136,142)] text-white dropdown-toggle"
+          className="btn  text-white dropdown-toggle"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"

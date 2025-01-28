@@ -112,28 +112,28 @@ function UsersList() {
         Site Users Data
       </h1>
       <div>
-        <div className="mb-4 flex justify-start align-items-center  shrink-0 m-2">
-          <div className="relative flex items-center lg:block ">
+        <div className="mb-4 d-flex flex-column flex-md-row justify-content-start align-items-center gap-3">
+          <div className="position-relative flex-grow-1 flex-md-grow-0 w-100 w-md-50">
             <input
               type="text"
               placeholder="Search"
-              className="flex w-[676px] px-[40px]  py-[8px] items-center gap-[21px] rounded-[6px] border-[1px] border-[#FF914D] bg-[#FFF] shrink-0 outline-none "
+              className="form-control !px-[40px] !py-[8px] !rounded-[6px] !border-[1px] !border-[#FF914D] !bg-[#FFF] !outline-none"
+
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <div className="rounded-[4px]">
-              <img
-                src={SEARCH}
-                alt="search"
-                className=" absolute top-[22px] left-[1px] transform -translate-y-1/2 w-[32px] h-[32px]"
-              />
-            </div>
+            <img
+              src={SEARCH}
+              alt="search"
+              className="position-absolute top-50 start-0 translate-middle-y ms-2"
+              style={{ width: "24px", height: "24px" }}
+            />
           </div>
-          <div>
+          <div className="flex-grow-1 flex-md-grow-0 w-100 w-md-50">
             <select
               value={selectedDesignation}
               onChange={(e) => setSelectedDesignation(e.target.value)}
-              className="px-[24px]  py-[6px]  mx-2 rounded-[6px] border-[1px] border-[#FF914D] outline-none text-[20px]"
+              className="form-select !px-[24px] !py-[6px]  !rounded-[6px] !border-[1px] !border-[#FF914D] !outline-none !text-[20px]"
             >
               <option value="">Employee Designations</option>
               <option value="Nursery staff">Nursery staff</option>
@@ -143,6 +143,7 @@ function UsersList() {
             </select>
           </div>
         </div>
+
         {isLoading ? (
           <div className="d-flex justify-content-center align-items-center  ">
             <div className="spinner-border" role="status">
@@ -168,6 +169,7 @@ function UsersList() {
                   <th className="py-[16px] px-[24px]">ClockIn</th>
                   <th className="py-[16px] px-[24px]">ClockOut</th>
                   <th className="py-[16px] px-[24px]">Duration</th>
+                  <th className="py-[16px] px-[24px]">Address</th>
 
                   <th className="py-[16px] px-[24px]">ClockInEmployeeImage</th>
                   <th className="py-[16px] px-[24px]">ClockOutEmployeeImage</th>
@@ -191,6 +193,7 @@ function UsersList() {
                     <td className="py-[16px] px-[24px]">{data.clock_in}</td>
                     <td className="py-[16px] px-[24px]">{data.clock_out}</td>
                     <td className="py-[16px] px-[24px]">{data.duration}</td>
+                    <td className="py-[16px] px-[24px]">{data.address}</td>
 
                     <td className="py-[16px] px-[24px]">
                       <button
@@ -201,13 +204,11 @@ function UsersList() {
                         }
                         className="button bg-[#FF914D] text-white py-2 px-4 rounded"
                       >
-                     View ClockIn Image
+                        View ClockIn Image
                       </button>
-                    
                     </td>
                     <td className="py-[16px] px-[24px]">
-                     
-                    <button
+                      <button
                         onClick={() =>
                           openModal(
                             `data:image/jpg;base64,${data.clock_out_employee_img}`
@@ -215,7 +216,7 @@ function UsersList() {
                         }
                         className="button bg-[#FF914D] text-white py-2 px-4 rounded"
                       >
-                       View ClockOut Image
+                        View ClockOut Image
                       </button>
                     </td>
                   </tr>
@@ -285,7 +286,7 @@ function UsersList() {
       </div>
       <Modal show={isModalOpen} onHide={closeModal} centered>
         <Modal.Header closeButton>
-          <Modal.Title >Clock In Image</Modal.Title>
+          <Modal.Title>Clock In Image</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <img
@@ -294,7 +295,6 @@ function UsersList() {
             className="w-100 rounded object-cover"
           />
         </Modal.Body>
-       
       </Modal>
     </div>
   );

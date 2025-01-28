@@ -37,7 +37,10 @@ function Login() {
       }
   
       setErrors(formErrors);
-  
+      if (formErrors.username || formErrors.password) {
+        setLoading(false);
+        return;
+      }
       if (!formErrors.username && !formErrors.password) {
         const formData = new FormData();
         formData.append("email", username);
@@ -114,6 +117,7 @@ function Login() {
                 <input
                   type="text"
                   className="w-full px-4 py-2 rounded-lg bg-white outline-none"
+                  required
                   value={username}
                   onChange={(e) => setUername(e.target.value)}
                   onFocus={handleEmailFocus}
@@ -135,6 +139,7 @@ function Login() {
                   type={passwordVisible ? "text" : "password"}
                   className="w-full px-4 py-2 rounded-lg bg-white outline-none"
                   value={password}
+                  required
                   onChange={(e) => setPassword(e.target.value)}
                   onFocus={handlePasswordFocus}
                 />
@@ -158,14 +163,14 @@ function Login() {
                   </p>
                 )}
               </div>
-              <div>
+              {/* <div>
                 <p
                   className="text-end md:text-[18px] text-[16px] text-white cursor-pointer"
                   onClick={() => navigate("/ResetPassword")}
                 >
                   Forget Password
                 </p>
-              </div>
+              </div> */}
             </div>
             <div className="flex justify-center items-center">
               <button
@@ -175,18 +180,15 @@ function Login() {
               >
                 {loading ? (
                   <span>
-                    <i
-                      className="spinner-border spinner-border-sm"
-                      role="status"
-                    ></i>
-                    Logging...
+                    
+                    Loading
                   </span>
                 ) : (
                   "Login"
                 )}
               </button>
             </div>
-            <div className="mt-7">
+            {/* <div className="mt-7">
               <p className="text-white md:text-[18px] text-[16px]">
                 Don't have an account?{" "}
                 <span
@@ -196,7 +198,7 @@ function Login() {
                   Sign Up For Free
                 </span>
               </p>
-            </div>
+            </div> */}
           </div>
         </form>
       </div>

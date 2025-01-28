@@ -99,14 +99,18 @@ function EmployeeExpenditure() {
   // };
   return (
     <div className="rounded-sm max-w-1440 whitespace-nowrap  mt-3 bg-white w-full ">
-      <h1 className="text-start font-work-sans text-[24px] font-bold not-italic leading-normal ">Employees Compensation Data</h1> 
+      <h1 className="text-start font-work-sans text-[24px] font-bold not-italic leading-normal ">
+        Employees Compensation Data
+      </h1>
       <div>
-        <div className="mb-4 flex justify-start align-items-center  shrink-0">
-          <div className="relative flex items-center lg:block  ">
+        <div className="mb-4 d-flex flex-column flex-lg-row  flex-md-column justify-content-start align-items-center gap-3">
+        <div className="d-flex w-100">
+
+          <div className="position-relative  w-100 ">
             <input
               type="text"
               placeholder="Search"
-              className="flex w-[676px] px-[40px]  py-[8px] items-center gap-[21px] rounded-[6px] border-[1px] border-[#FF914D] bg-[#FFF] shrink-0 outline-none "
+              className=" form-control  !px-[40px]  !py-[8px] !items-center !gap-[21px] !rounded-[6px] !border-[1px] !border-[#FF914D] !bg-[#FFF] !shrink-0 !outline-none "
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -118,11 +122,15 @@ function EmployeeExpenditure() {
               />
             </div>
           </div>
-          <div>
+          </div>
+          <div className="d-flex w-100 gap-3 flex-column flex-md-row">
+
+
+          <div className="flex-grow-1 flex-md-grow-0 w-100 w-md-50">
             <select
               value={selectedFormType}
               onChange={(e) => setSelectedFormType(e.target.value)}
-              className="px-[24px] py-[6px] mx-2 rounded-[6px] border-[1px] border-[#FF914D] outline-none text-[20px]"
+              className="form-select !px-[24px] !py-[6px]  !rounded-[6px] !border-[1px] !border-[#FF914D] !outline-none !text-[20px]"
             >
               <option value="">Form Type</option>
               <option value="nursery">Nursery</option>
@@ -138,11 +146,11 @@ function EmployeeExpenditure() {
             </select>
           </div>
 
-          <div>
+          <div className="flex-grow-1 flex-md-grow-0 w-100 w-md-50">
             <select
               value={selectedCategoryType}
               onChange={(e) => setSelectedCategoryType(e.target.value)}
-              className="px-[24px] py-[6px] mx-2 rounded-[6px] border-[1px] border-[#FF914D] outline-none text-[20px]"
+              className=" form-select !px-[24px] !py-[6px]  !rounded-[6px] !border-[1px] !border-[#FF914D] !outline-none !text-[20px]"
             >
               <option value="">Category Type</option>
               <option value="fixedsalaries">Fixed Salaries</option>
@@ -178,6 +186,8 @@ function EmployeeExpenditure() {
               <option value="machines">Machines</option>
             </select>
           </div>
+</div>
+
         </div>
         {isLoading ? (
           <div className="d-flex justify-content-center align-items-center  ">
@@ -204,7 +214,7 @@ function EmployeeExpenditure() {
                   <th className="py-[16px] px-[24px]">salaryAmount</th>
                   <th className="py-[16px] px-[24px]">Paymentmode</th>
                   <th className="py-[16px] px-[24px]">Transaction Id</th>
-<th className="py-[16px] px-[24px]">Email</th>
+                  <th className="py-[16px] px-[24px]">Email</th>
                   <th className="py-[16px] px-[24px]">createdAt</th>
                 </tr>
               </thead>
@@ -224,9 +234,7 @@ function EmployeeExpenditure() {
                     <td className="py-[16px] px-[24px]">
                       {data.transactionId}
                     </td>
-                    <td className="py-[16px] px-[24px]">
-                      {data.email}
-                    </td>
+                    <td className="py-[16px] px-[24px]">{data.email}</td>
                     <td className="py-[16px] px-[24px]">{data.createdAt}</td>
                   </tr>
                 ))}

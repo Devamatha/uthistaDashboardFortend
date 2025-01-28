@@ -24,7 +24,7 @@ background-color: coral;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
 
-.Sidenav {
+.Sidenav{
   z-index: 100;
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }

@@ -25,8 +25,7 @@ function Expenses() {
   }, [Page, pageSize]);
   const fetchData = async (page, size) => {
     try {
-      const now = new Date();
-      console.log(now.toLocaleTimeString("en-US", { hour12: false }));
+     
       setisLoading(true);
 
       axios
@@ -116,12 +115,15 @@ function Expenses() {
     <div className="rounded-sm max-w-1440 whitespace-nowrap  mt-3 bg-white w-full ">
       <h1 className="text-start font-work-sans text-[24px] font-bold not-italic leading-normal">Expenses Data</h1> 
       <div className="m-1">
-        <div className="mb-4 flex justify-start align-items-center  shrink-0">
-          <div className="relative flex items-center lg:block  ">
+
+        <div className="mb-4 d-flex flex-column flex-lg-row  flex-md-column justify-content-start align-items-center gap-3">
+        <div className="d-flex w-100">
+
+          <div className="position-relative  w-100 ">
             <input
               type="text"
               placeholder="Search"
-              className="flex w-[676px] px-[40px] py-[8px] items-center gap-[21px] rounded-[6px] border-[1px] border-[#FF914D] bg-[#FFF] shrink-0 outline-none"
+              className="form-control !px-[40px] !py-[8px] !items-center !gap-[21px] !rounded-[6px] !border-[1px] !border-[#FF914D] !bg-[#FFF] !shrink-0 !outline-none"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -133,11 +135,16 @@ function Expenses() {
               />
             </div>
           </div>
-          <div>
+
+          </div>
+
+          <div className="d-flex w-100 gap-3 flex-column flex-md-row">
+
+          <div className="flex-grow-1 flex-md-grow-0 w-100 w-md-50">
             <select
               value={selectedFormType}
               onChange={(e) => setSelectedFormType(e.target.value)}
-              className="px-[24px] py-[6px] mx-2 rounded-[6px] border-[1px] border-[#FF914D] outline-none text-[20px]"
+              className="form-select !px-[24px] !py-[6px]  !rounded-[6px] !border-[1px] !border-[#FF914D] !outline-none !text-[20px]"
             >
               <option value="">Form Type</option>
               <option value="nursery">Nursery</option>
@@ -153,11 +160,11 @@ function Expenses() {
             </select>
           </div>
 
-          <div>
+          <div className="flex-grow-1 flex-md-grow-0 w-100 w-md-50">
             <select
               value={selectedCategoryType}
               onChange={(e) => setSelectedCategoryType(e.target.value)}
-              className="px-[24px] py-[6px] mx-2 rounded-[6px] border-[1px] border-[#FF914D] outline-none text-[20px]"
+              className="form-select !px-[24px] !py-[6px]  !rounded-[6px] !border-[1px] !border-[#FF914D] !outline-none !text-[20px]"
             >
               <option value="">Category Type</option>
               <option value="fixedsalaries">Fixed Salaries</option>
@@ -186,6 +193,7 @@ function Expenses() {
               <option value="skillstrainingcost">Skills Training Cost</option>
               <option value="machines">Machines</option>
             </select>
+          </div>
           </div>
         </div>
         {isLoading ? (
