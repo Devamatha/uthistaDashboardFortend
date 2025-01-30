@@ -203,7 +203,11 @@ function Expenses() {
             </div>
           </div>
         ) : hasNoData ? (
-          <div className="alert alert-warning text-center">{hasNoData}</div>
+          <div className="alert alert-warning text-center">
+            {/* {hasNoData} */}
+            <iframe src="https://lottie.host/embed/6904d12c-ebf7-4e19-9691-b7b0e5d70a83/jrgAE1S4ry.lottie"></iframe>  
+
+            </div>
         ) : (
           <div className="table-container  table-responsive text-center rounded shadow-sm rounded-sm table-hover">
          <h6 className="flex align-start justify-content-start font-work-sans text-[18px] font-medium not-italic leading-normal ">

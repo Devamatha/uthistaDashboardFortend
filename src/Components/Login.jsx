@@ -25,9 +25,6 @@ function Login() {
   
       if (!username) {
         formErrors.username = "Enter your email";
-      } else if (!/\S+@gmail\.com/.test(username)) {
-        formErrors.username =
-          "Enter a valid email (example@gmail.com)";
       }
   
       if (!password) {
